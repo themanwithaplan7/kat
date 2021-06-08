@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// You can choose your kind of history here (e.g. browserHistory)
+// Your routes.js file
+import routes from './routes';
 
 ReactDOM.render(
   <React.StrictMode>

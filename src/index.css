@@ -27,9 +27,12 @@ body {
 }
 
 #nav {
+    background-size: cover;
+    background-image: url('./tester.jpg');
     position: relative;
     color: white;
     min-width: 100%;
+    min-height: 845px;
     white-space: nowrap;
     float: left;
     margin: 0 0 1em 0;

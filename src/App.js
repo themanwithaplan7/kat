@@ -40,7 +40,7 @@ export default class App extends React.Component {
               <Contact/>
             </Route>
             <Route path="/gallery">
-              <Gallery/>
+              <Auth/>
             </Route>
             <Route path="/">
               <Home/>
@@ -144,6 +144,49 @@ class Gallery extends React.Component {
               })
             }
           />
+        )}
+      </div>
+    );
+  }
+}
+
+class Auth extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      password: "Kat",
+      value: "",
+      authenticate: false
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+  
+
+  handleSubmit(event) {
+    if (this.state.value == this.state.password) {
+      this.setState({ authenticate: true })
+    }
+    event.preventDefault()
+  }
+
+  handleChange(event) {
+    this.setState({ value : event.target.value })
+  }
+  render(){
+    return (
+      <div>
+        {!this.state.authenticate && (<form onSubmit={this.handleSubmit}>
+          <label>Password
+          <input type="text" onChange={this.handleChange}/>
+          </label>
+          <input type="submit" value="Submit" />
+          
+        </form>
+        )}
+        
+        {this.state.authenticate && (
+          <Gallery/>
         )}
       </div>
     );

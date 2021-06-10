@@ -10,39 +10,54 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Navbar from "./Navbar";
-import Carousel from 'react-bootstrap/Carousel';
-import Lightbox from 'react-lightbox-component';
-import "react-lightbox-component/build/css/index.css";
+import Nav from "./Nav";
+// import Lightbox from 'react-lightbox-component';
+// import "react-lightbox-component/build/css/index.css";
+import React, { useState, useEffect, useRef } from "react";
+import styled, { createGlobalStyle } from "styled-components";
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 
-export default function App() {
-  return (
-    <Router>
-      <div>
-        <Switch>
-          <Route path="/about">
-            <About/>
-          </Route>
-          <Route path="/contact">
-            <Contact/>
-          </Route>
-          <Route path="/gallery">
-            <Gallery/>
-          </Route>
-          <Route path="/">
-            <Home/>
-          </Route>
-          
-        </Switch>
-      </div>
-    </Router>
-  );
+const images = [
+  kat1,
+  kat2,
+  kat3
+]
+
+export default class App extends React.Component {
+  
+
+
+  render() {
+    return (
+      <Router>
+        <div>
+          <Switch>
+            <Route path="/about">
+              <About/>
+            </Route>
+            <Route path="/contact">
+              <Contact/>
+            </Route>
+            <Route path="/gallery">
+              <Gallery/>
+            </Route>
+            <Route path="/">
+              <Home/>
+            </Route>
+            
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
 
 function Home () {
   return (
     <div>
-      <Navbar/>
+      <Nav/>
+      <p>Can you see me</p>
     <div className="container">
         
         <p>
@@ -57,11 +72,9 @@ function Home () {
 function About () {
   return (
     <div>
-      <Navbar name="About"/>
+      <Nav/>
       <div className="container">
         <body>
-          <div className="empty" style={{ padding: "400px" }}>
-          </div>
           <hr style={{ backgroundColor: 'white' }} />
           <h2 style={{ textAlign: 'center' }}>In Person Sessions</h2>
           <div className="empty" style={{ padding: "100px" }}></div>
@@ -77,7 +90,7 @@ function About () {
 function Contact () {
   return( 
   <div>
-    <Navbar/>
+    <Nav/>
     <div className="container">
       <body>
         <p>Contact me</p>
@@ -87,37 +100,52 @@ function Contact () {
   )
 }
 
-function Gallery () {
-  return (
-    <div>
-     <Navbar/>
-      <head>
-        <title>Gallery</title>
-
-      </head>
-      <body>
-        <div>
-        <Lightbox images={
-            [
-              {
-                src: kat2,
-                description: "  "
-              },
-              {
-                src: kat1,
-                description: "  "
-              },
-              {
-                src: kat3,
-                description: "  "
-              }
-            ]
-          }
-          showImageModifiers={false}
-          thumbnailWidth='25%'
-          thumbnailHeight='25%'/>
+class Gallery extends React.Component {
+  constructor(props) {
+    super(props);
+ 
+    this.state = {
+      photoIndex: 0,
+      isOpen: false,
+    };
+  }
+ 
+  render() {
+    const { photoIndex, isOpen } = this.state;
+ 
+    return (
+      
+      <div>
+        <Nav/>
+        <div id='gallery'>
+       
+          <img src={kat1} onClick={() => this.setState({ isOpen: true, photoIndex: 0 })} />
+          <img src={kat2} onClick={() => this.setState({ isOpen: true, photoIndex: 1 })} />
+          <img src={kat3} onClick={() => this.setState({ isOpen: true, photoIndex: 2 })} />
+        
         </div>
-      </body>
-    </div>
-  )
+      
+ 
+        {isOpen && (
+          <Lightbox
+            mainSrc={images[photoIndex]}
+            mainSrcThumbnail={kat1}
+            nextSrc={images[(photoIndex + 1) % images.length]}
+            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+            onCloseRequest={() => this.setState({ isOpen: false })}
+            onMovePrevRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + images.length - 1) % images.length,
+              })
+            }
+            onMoveNextRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + 1) % images.length,
+              })
+            }
+          />
+        )}
+      </div>
+    );
+  }
 }

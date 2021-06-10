@@ -1,77 +1,77 @@
-body {
-    margin: 10 10em 10em 10;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: black !important;
-    color: white !important;
-}
-
-#gallery img {
-    width: 33% !important;
-    height: auto !important;
-    margin-bottom: 5px;
-    padding: 20px;
-    /* to match column gap */
-}
-
-#gallery {
-    line-height: 0;
-}
-
-#slideshow {
-    width: 50%;
-    height: 50%;
-    margin: auto;
-    display: grid;
-}
-
-#nav {
-    background-size: cover;
-    background-image: url('./tester.jpg');
-    position: relative;
-    color: white;
-    min-width: 100%;
-    min-height: 845px;
-    white-space: nowrap;
-    float: left;
-    margin: 0 0 1em 0;
-    padding: 0;
-    list-style: none;
-    border-bottom: 1px solid #ccc;
-    border-top: 1px solid #ccc;
-}
-
-#nav a {
-    margin-top: 2em;
-    margin-right: 2em;
-    margin: 1em 2em 2em;
-    text-decoration: none;
-    float: right;
-    display: block;
-    padding: 8px 15px;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-}
-
-#nav a:hover {
-    color: gray;
-}
-
-#nav a.title {
-    font-weight: bolder;
-    float: left;
-}
-
-#nav a.contact {
-    border-radius: 25px;
-    border: 2px solid rgb(184, 174, 174);
-    font-size: 15px;
-    margin-top: 1.5em;
-}
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
+    body {
+        margin: 10 10em 10em 10;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: black !important;
+        color: white !important;
+    }
+    
+    #gallery img {
+        width: 33% !important;
+        height: 5% !important;
+        margin-bottom: 5px;
+        padding: 20px;
+        /* to match column gap */
+    }
+    
+    #gallery {
+        line-height: 0;
+    }
+    
+    #slideshow {
+        width: 50%;
+        height: 50%;
+        margin: auto;
+        display: grid;
+    }
+    
+    #nav {
+        background-image: url('./kat2.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        color: white;
+        min-width: 100%;
+        white-space: nowrap;
+        float: left;
+        margin: 0 0 1em 0;
+        padding: 0;
+        list-style: none;
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+    }
+    
+    #nav a {
+        margin-top: 2em;
+        margin-right: 2em;
+        margin: 1em 2em 2em;
+        text-decoration: none;
+        float: right;
+        display: block;
+        padding: 4px 7px;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold;
+        color: rgb(255, 255, 255);
+    }
+    
+    #nav a:hover {
+        color: gray;
+    }
+    
+    #nav a.title {
+        font-weight: bolder;
+        float: left;
+    }
+    
+    #nav a.contact {
+        border-radius: 25px;
+        border: 2px solid rgb(184, 174, 174);
+        font-size: 15px;
+        margin-top: 1.5em;
+    }
+    
+    code {
+        font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    }
